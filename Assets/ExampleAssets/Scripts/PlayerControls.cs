@@ -34,6 +34,14 @@ public class PlayerControls : MonoBehaviour
         {
             target.localPosition = new Vector3();
             target.rotation = new Quaternion();
+            if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            {
+                target.Rotate(0, -45, 0);
+            }
+            else if(Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            {
+                target.Rotate(0, 45, 0);
+            }
             target.Translate(0, 0, speed / 60f);
 
             rb.MovePosition(target.position);
@@ -42,7 +50,33 @@ public class PlayerControls : MonoBehaviour
         {
             target.localPosition = new Vector3();
             target.rotation = new Quaternion();
+            if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            {
+                target.Rotate(0, 45, 0);
+            }
+            else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+            {
+                target.Rotate(0, -45, 0);
+            }
             target.Translate(0, 0, -speed / 60f);
+
+            rb.MovePosition(target.position);
+        }
+        else if(Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            target.localPosition = new Vector3();
+            target.rotation = new Quaternion();
+            target.Rotate(0, -90, 0);
+            target.Translate(0, 0, speed / 60f);
+
+            rb.MovePosition(target.position);
+        }
+        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        {
+            target.localPosition = new Vector3();
+            target.rotation = new Quaternion();
+            target.Rotate(0, 90, 0);
+            target.Translate(0, 0, speed / 60f);
 
             rb.MovePosition(target.position);
         }
