@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c069cda830447e9e8c977a778765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   rotation: {x: 0, y: 0}
   rotationAcc: {x: 4, y: 3}
   cam: {fileID: 668819734}
@@ -1230,9 +1230,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa32626c114546fca3aa0ed681f5cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   text: {fileID: 1774401265}
   currentText: 
+  currentGoalText: 
+  goalText: 
   rayDistance: 3
+  secondsPerChar: 0.05
+  secondsPerDelete: 0.01
+  timer: 0
 --- !u!1 &1774401263
 GameObject:
   m_ObjectHideFlags: 0

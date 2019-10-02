@@ -5,13 +5,31 @@ using TMPro;
 
 public class CameraLook : MonoBehaviour
 {
+    public bool debug;
+
+    public enum State
+    {
+        BLANK,
+        TYPING,
+        DONE,
+        UNTYPING
+    }
+
+    public State state = State.BLANK;
+
     private Camera cam;
 
     public TMP_Text text;
 
     public string currentText;
+    public string currentGoalText;
+    public string goalText;
 
     public float rayDistance;
+
+    public float secondsPerChar;
+    public float secondsPerDelete;
+    public float timer;
 
     void Start()
     {
@@ -20,22 +38,88 @@ public class CameraLook : MonoBehaviour
 
     void Update()
     {
+        CheckRaycast();
+
+        CheckTextState();
+
+        DrawText();
+    }
+
+    void CheckRaycast()
+    {
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
         RaycastHit hit;
 
-        //Debug.DrawRay(ray.origin, ray.direction * rayDistance);
+        if(debug)
+            Debug.DrawRay(ray.origin, ray.direction * rayDistance);
 
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
             if (hit.collider.GetComponent<LookDialog>() != null)
-                currentText = hit.collider.GetComponent<LookDialog>().text;
+                goalText = hit.collider.GetComponent<LookDialog>().text;
             else
-                currentText = "";
+                goalText = "";
+        }
+        else
+        {
+            goalText = "";
+        }
+    }
+
+    void CheckTextState()
+    {
+        if (goalText == "" && currentText == "")
+        {
+            state = State.BLANK;
+        }
+        else if (state == State.BLANK && goalText != "")
+        {
+            currentGoalText = goalText;
+            state = State.TYPING;
+        }
+        else if (currentGoalText != goalText)
+        {
+            currentGoalText = "";
+            state = State.UNTYPING;
+        }
+        else if (currentText == currentGoalText)
+        {
+            state = State.DONE;
+        }
+    }
+
+    void DrawText()
+    {
+        switch(state)
+        {
+            case State.BLANK:
+                timer = 0;
+                break;
+            case State.TYPING:
+                timer += Time.deltaTime;
+                if (timer > secondsPerChar)
+                {
+                    timer = 0;
+                    currentText = currentGoalText.Substring(0, currentText.Length + 1);
+                    while(currentText[currentText.Length-1] == ' ')
+                    {
+                        currentText = currentGoalText.Substring(0, currentText.Length + 1);
+                    }
+                }
+                break;
+            case State.DONE:
+                timer = 0;
+                break;
+            case State.UNTYPING:
+                timer += Time.deltaTime;
+                if(timer > secondsPerDelete)
+                {
+                    timer = 0;
+                    currentText = currentText.Substring(0, currentText.Length - 1);
+                }
+                break;
         }
 
-        if(currentText.Length > text.text.Length)
-        {
-            text.text = currentText.Substring(0, text.text.Length+1);
-        }
+        text.text = currentText;
     }
 }
