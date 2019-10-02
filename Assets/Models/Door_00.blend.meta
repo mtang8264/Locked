@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: e39d5ee60d2de472d8b0617e1c874ad1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doorknob
+    second: {fileID: 2100000, guid: f4a4ec28586314f339729e4d2aea103c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame
+    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
   - first:
