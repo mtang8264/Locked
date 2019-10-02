@@ -28,7 +28,7 @@ public class CameraLook : MonoBehaviour
     public float rayDistance;
 
     public float secondsPerChar;
-    public float secondsPerDelete;
+    public int charPerDelete;
     public float timer;
 
     void Start()
@@ -112,10 +112,14 @@ public class CameraLook : MonoBehaviour
                 break;
             case State.UNTYPING:
                 timer += Time.deltaTime;
-                if(timer > secondsPerDelete)
+                if(timer > secondsPerChar)
                 {
                     timer = 0;
-                    currentText = currentText.Substring(0, currentText.Length - 1);
+                    for (int i = 0; i < charPerDelete; i++)
+                    {
+                        if (currentText != "")
+                            currentText = currentText.Substring(0, currentText.Length - 1);
+                    }
                 }
                 break;
         }
