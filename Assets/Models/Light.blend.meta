@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b4d055f2c8264b7692646663aa6586e
+guid: eb3539ef182f95d4fa318007f6eff1ab
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,58 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Door
-    second: {fileID: 2100000, guid: e39d5ee60d2de472d8b0617e1c874ad1, type: 2}
+      name: Filament
+    second: {fileID: 2100000, guid: a74b403c8e5e3aa41a7ffea14b1b5edb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Doorknob
-    second: {fileID: 2100000, guid: f4a4ec28586314f339729e4d2aea103c, type: 2}
+      name: LightBulb
+    second: {fileID: 2100000, guid: 0ad6888d019660b4cad12924ad2c4960, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Floor
-    second: {fileID: 2100000, guid: 69a9fd1f8b4024cc7968dec6758140f7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Floor.001
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Frame
-    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wallpaper
-    second: {fileID: 2100000, guid: 031af5f825824400fbcd191b3cbd8d03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wallpaper.001
-    second: {fileID: 2100000, guid: 031af5f825824400fbcd191b3cbd8d03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wallpaper.002
-    second: {fileID: 2100000, guid: 031af5f825824400fbcd191b3cbd8d03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood.001
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood.002
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
+      name: Metal
+    second: {fileID: 2100000, guid: e086cde4b748b0b41a307695d01d6663, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -89,9 +49,9 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.5
+    globalScale: 0.1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -136,7 +96,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

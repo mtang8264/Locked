@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 9b4d055f2c8264b7692646663aa6586e
+guid: f6480ce3b6144224599da8f7e8055a6e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceiling
+    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -22,13 +27,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Floor.001
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
+      name: Frame
+    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Frame
-    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
+      name: Glass
+    second: {fileID: 2100000, guid: 8dcf1bacae07325438d69d895c735a78, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -37,28 +42,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wallpaper.001
-    second: {fileID: 2100000, guid: 031af5f825824400fbcd191b3cbd8d03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wallpaper.002
-    second: {fileID: 2100000, guid: 031af5f825824400fbcd191b3cbd8d03, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood.001
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood.002
-    second: {fileID: 2100000, guid: 6638fd2a12a6c45999982199ab4270ec, type: 2}
+      name: Window_Frame
+    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

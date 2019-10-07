@@ -59,6 +59,11 @@ public class CameraLook : MonoBehaviour
                 goalText = hit.collider.GetComponent<LookDialog>().text;
             else
                 goalText = "";
+
+            if(hit.collider.GetComponent<DoorClicker>() != null && Input.GetMouseButtonDown(0))
+            {
+                hit.collider.GetComponent<DoorClicker>().LoadScene();
+            }
         }
         else
         {

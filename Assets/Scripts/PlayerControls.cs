@@ -8,6 +8,7 @@ public class PlayerControls : MonoBehaviour
 
     public Vector2 rotation;
     public Vector2 rotationAcc;
+    public float xRotMaxima;
 
     public Transform cam;
     public Transform target;
@@ -17,18 +18,40 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        Setup();
     }
 
     void Update()
     {
+        MouseInput();
+    }
+
+    private void FixedUpdate()
+    {
+        KeyboardInput();
+    }
+
+    void Setup()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void MouseInput()
+    {
         rotation.x -= Input.GetAxis("Mouse Y") * rotationAcc.x;
         rotation.y += Input.GetAxis("Mouse X") * rotationAcc.y;
+
+        if (rotation.x > xRotMaxima)
+            rotation.x = xRotMaxima;
+        if (rotation.x < -xRotMaxima)
+            rotation.x = -xRotMaxima;
 
         cam.localEulerAngles = new Vector3(rotation.x, 0);
         transform.localEulerAngles = new Vector3(0, rotation.y);
     }
 
-    private void FixedUpdate()
+    void KeyboardInput()
     {
         if (Input.GetKey(KeyCode.W))
         {
