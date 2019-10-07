@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8b8db60ddb4a7a448372d8dcc2e7eed
+guid: 7539177cfe05b4721b711262503f4213
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bedding
-    second: {fileID: 2100000, guid: a2af72555749f496fa92cfb24d4b4ced, type: 2}
+      name: DeskBody
+    second: {fileID: 2100000, guid: 15977945b2d6a4f868e5043282271790, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Blanket
-    second: {fileID: 2100000, guid: 839142599ecde4fbcac26cfd2c004b96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood_Frame
-    second: {fileID: 2100000, guid: 699893ce2eb4942bb9ad5f5217109035, type: 2}
+      name: TableLegs
+    second: {fileID: 2100000, guid: 1f57efeb066fa453c9de731c17582fba, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
