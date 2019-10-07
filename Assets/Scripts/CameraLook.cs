@@ -73,7 +73,7 @@ public class CameraLook : MonoBehaviour
 
     void CheckTextState()
     {
-        if (goalText == "" && currentText == "")
+        if (goalText == "" && currentText == "" )
         {
             state = State.BLANK;
         }
@@ -125,6 +125,11 @@ public class CameraLook : MonoBehaviour
                         if (currentText != "")
                             currentText = currentText.Substring(0, currentText.Length - 1);
                     }
+                }
+
+                if(currentText == "")
+                {
+                    state = State.BLANK;
                 }
                 break;
         }

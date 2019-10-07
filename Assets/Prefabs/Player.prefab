@@ -217,7 +217,7 @@ MonoBehaviour:
   currentGoalText: 
   goalText: 
   rayDistance: 2
-  secondsPerChar: 0.01
+  secondsPerChar: 0.05
   charPerDelete: 4
   timer: 0
 --- !u!1001 &1527251087
