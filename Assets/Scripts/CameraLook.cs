@@ -31,6 +31,8 @@ public class CameraLook : MonoBehaviour
     public int charPerDelete;
     public float timer;
 
+    private WorldClickable clickable;
+
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
@@ -43,6 +45,8 @@ public class CameraLook : MonoBehaviour
         CheckTextState();
 
         DrawText();
+
+        CheckClick();
     }
 
     void CheckRaycast()
@@ -64,6 +68,8 @@ public class CameraLook : MonoBehaviour
             {
                 hit.collider.GetComponent<DoorClicker>().LoadScene();
             }
+
+            clickable = hit.collider.GetComponent<WorldClickable>();
         }
         else
         {
@@ -135,5 +141,13 @@ public class CameraLook : MonoBehaviour
         }
 
         text.text = currentText;
+    }
+
+    private void CheckClick()
+    {
+        if (Input.GetMouseButtonDown(0) && clickable != null)
+        {
+            clickable.Click();
+        }
     }
 }
