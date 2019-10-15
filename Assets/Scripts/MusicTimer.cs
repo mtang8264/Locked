@@ -5,12 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MusicTimer : MonoBehaviour
 {
+    private static MusicTimer instance;
+
     public float time;
 
     public AudioSource musicSource;
 
     void Start()
     {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
+
         DontDestroyOnLoad(gameObject);
     }
 

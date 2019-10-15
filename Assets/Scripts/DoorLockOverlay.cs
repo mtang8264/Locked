@@ -42,6 +42,8 @@ public class DoorLockOverlay : MonoBehaviour
 
         if(background.down && !background.read)
         {
+            background.down = false;
+            background.read = true;
             Cursor.lockState = CursorLockMode.Locked;
             player.enabled = true;
             narration.gameObject.SetActive(true);
