@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public Vector3 doorPosition;
     public Vector3 doorRotation;
 
+    [Header("gearbox")]
+    public bool gearsDone;
+    private bool gearsRead = false;
+
     private void Start()
     {
         if (instance == null)
@@ -23,6 +27,12 @@ public class GameManager : MonoBehaviour
         {
             door.position = doorPosition;
             door.localEulerAngles = doorRotation;
+        }
+
+        if(gearsDone && !gearsRead)
+        {
+            gearsRead = true;
+            Gearbox.complete = true;
         }
     }
 }

@@ -23,6 +23,15 @@ public class DoorLockOverlay : MonoBehaviour
         crosshair.gameObject.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        player.enabled = false;
+
+        narration.gameObject.SetActive(false);
+        crosshair.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         for(int i = 0; i < 4; i ++)
