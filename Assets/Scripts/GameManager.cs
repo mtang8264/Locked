@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Vector3 doorRotation;
 
     [Header("gearbox")]
+    public int gearInHand;
     public bool gearsDone;
     private bool gearsRead = false;
 
@@ -29,10 +30,28 @@ public class GameManager : MonoBehaviour
             door.localEulerAngles = doorRotation;
         }
 
+        if(GearShaft.complete == 4)
+        {
+            gearsDone = true;
+        }
+
         if(gearsDone && !gearsRead)
         {
             gearsRead = true;
             Gearbox.complete = true;
         }
+    }
+
+    public static void PickUpGear(int i)
+    {
+        instance.gearInHand = i;
+    }
+    public static void PlaceGear(GearShaft shaft)
+    {
+        if(instance.gearInHand == shaft.targetSize)
+        {
+            shaft.Place();
+        }
+        instance.gearInHand = 0;
     }
 }

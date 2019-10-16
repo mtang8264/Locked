@@ -32,6 +32,7 @@ public class CameraLook : MonoBehaviour
     public float timer;
 
     private WorldClickable clickable;
+    private GearShaft shaft;
 
     void Start()
     {
@@ -70,6 +71,7 @@ public class CameraLook : MonoBehaviour
             }
 
             clickable = hit.collider.GetComponent<WorldClickable>();
+            shaft = hit.collider.GetComponent<GearShaft>();
         }
         else
         {
@@ -145,9 +147,32 @@ public class CameraLook : MonoBehaviour
 
     private void CheckClick()
     {
-        if (Input.GetMouseButtonDown(0) && clickable != null)
+        if (Input.GetMouseButtonDown(0) == false)
+            return;
+
+        if (clickable != null)
         {
             clickable.Click();
+        }
+
+        if (goalText.Contains("small"))
+        {
+            GameManager.PickUpGear(1);
+        }
+        else if (goalText.Contains("medium"))
+        {
+            GameManager.PickUpGear(2);
+        }
+        else if (goalText.Contains("large"))
+        {
+            GameManager.PickUpGear(3);
+        }
+        else
+        {
+            if(shaft != null)
+            {
+                GameManager.PlaceGear(shaft);
+            }
         }
     }
 }
