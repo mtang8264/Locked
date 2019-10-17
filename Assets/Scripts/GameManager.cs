@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class GameManager : MonoBehaviour
     public Vector3 doorRotation;
 
     [Header("gearbox")]
+    public TextMeshProUGUI gearText;
+    public float secPerTextFade;
     public int gearInHand;
     public bool gearsDone;
     private bool gearsRead = false;
@@ -45,13 +49,92 @@ public class GameManager : MonoBehaviour
     public static void PickUpGear(int i)
     {
         instance.gearInHand = i;
+        instance.SendMessage("ShowGearText");
     }
+
+    public void ShowGearText()
+    {
+        StartCoroutine(PickUpGearText());
+    }
+    public IEnumerator PickUpGearText()
+    {
+        StopCoroutine("CoPlaceGear");
+        StopCoroutine("PickUpGearText");
+
+        gearText.color = new Color(1, 1, 1, 0);
+        gearText.text = "You picked up a ";
+        switch(gearInHand)
+        {
+            case 1:
+                gearText.text += "a small gear.";
+                break;
+            case 2:
+                gearText.text += "a medium gear.";
+                break;
+            case 3:
+                gearText.text += "a large gear.";
+                break;
+            default:
+                gearText.text = "You don't know what you picked up.";
+                break;
+        }
+        for (int i = 0; i < 60; i++)
+        {
+            gearText.color = new Color(1, 1, 1, gearText.color.a + (1f / 60f));
+            yield return new WaitForSeconds(secPerTextFade / 60f);
+        }
+        yield return new WaitForSeconds(3);
+        for (int i = 0; i < 60; i++)
+        {
+            gearText.color = new Color(1, 1, 1, gearText.color.a - (1f / 60f));
+            yield return new WaitForSeconds(secPerTextFade / 60f);
+        }
+    }
+
     public static void PlaceGear(GearShaft shaft)
     {
         if(instance.gearInHand == shaft.targetSize)
         {
             shaft.Place();
         }
-        instance.gearInHand = 0;
+        instance.SendMessage("PlaceGearText", shaft);
+    }
+    public void PlaceGearText(GearShaft shaft)
+    {
+        StartCoroutine(CoPlaceGear(gearInHand, shaft.targetSize));
+
+        gearInHand = 0;
+    }
+
+    public IEnumerator CoPlaceGear(int k, int j)
+    {
+        StopCoroutine("CoPlaceGear");
+        StopCoroutine("PickUpGearText");
+
+        gearText.color = new Color(1, 1, 1, 0);
+        if(k == j)
+        {
+            gearText.text = "The gear fit into place.";
+        }
+        else if(k == 0)
+        {
+            gearText.text = "You don't have a gear.";
+        }
+        else
+        {
+            gearText.text = "The gear broke as you tried to fit in on.";
+        }
+
+        for (int i = 0; i < 60; i++)
+        {
+            gearText.color = new Color(1, 1, 1, gearText.color.a + (1f / 60f));
+            yield return new WaitForSeconds(secPerTextFade / 60f);
+        }
+        yield return new WaitForSeconds(3);
+        for (int i = 0; i < 60; i++)
+        {
+            gearText.color = new Color(1, 1, 1, gearText.color.a - (1f / 60f));
+            yield return new WaitForSeconds(secPerTextFade / 60f);
+        }
     }
 }
