@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     public Vector3 doorPosition;
     public Vector3 doorRotation;
 
-    [Header("gearbox")]
+    [Header("Gearbox")]
     public TextMeshProUGUI gearText;
     public float secPerTextFade;
     public int gearInHand;
     public bool gearsDone;
     private bool gearsRead = false;
+
+    [Header("Return")]
+    public Collider doorBlock;
 
     private void Start()
     {
@@ -43,6 +46,11 @@ public class GameManager : MonoBehaviour
         {
             gearsRead = true;
             Gearbox.complete = true;
+        }
+
+        if(gearsDone)
+        {
+            doorBlock.enabled = false;
         }
     }
 
