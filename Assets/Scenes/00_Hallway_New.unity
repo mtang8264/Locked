@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc574531ae4efa4498dd06990a2b50f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 1
+  sceneToLoad: 01_Bedroom
 --- !u!114 &724673894
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorClicker : MonoBehaviour
 {
-    public int sceneToLoad;
+    public string sceneToLoad;
 
     void Start()
     {

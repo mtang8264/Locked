@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Return")]
     public Collider doorBlock;
+    public LookDialog[] gooseDialogs;
+    public LookDialog bedDialog;
+    public DoorClicker bedClick;
+    public string postGearDialog;
 
     private void Start()
     {
@@ -51,6 +55,12 @@ public class GameManager : MonoBehaviour
         if(gearsDone)
         {
             doorBlock.enabled = false;
+            foreach(LookDialog d in gooseDialogs)
+            {
+                d.text = postGearDialog;
+            }
+            bedDialog.text = "That was a weird dream...";
+            bedClick.enabled = true;
         }
     }
 
@@ -62,7 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void ShowGearText()
     {
-        StartCoroutine(PickUpGearText());
+        if(gearsDone == false)
+            StartCoroutine(PickUpGearText());
     }
     public IEnumerator PickUpGearText()
     {
