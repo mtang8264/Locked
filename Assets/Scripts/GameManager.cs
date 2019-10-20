@@ -97,17 +97,10 @@ public class GameManager : MonoBehaviour
                 gearText.text = "You don't know what you picked up.";
                 break;
         }
-        for (int i = 0; i < 60; i++)
-        {
-            gearText.color = new Color(1, 1, 1, gearText.color.a + (1f / 60f));
-            yield return new WaitForSeconds(secPerTextFade / 60f);
-        }
-        yield return new WaitForSeconds(3);
-        for (int i = 0; i < 60; i++)
-        {
-            gearText.color = new Color(1, 1, 1, gearText.color.a - (1f / 60f));
-            yield return new WaitForSeconds(secPerTextFade / 60f);
-        }
+        gearText.GetComponent<Animator>().Play("Invisible");
+        yield return new WaitUntil(() => gearText.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Invisible");
+        gearText.GetComponent<Animator>().Play("Appear");
+        yield return null;
     }
 
     public static void PlaceGear(GearShaft shaft)
@@ -143,17 +136,9 @@ public class GameManager : MonoBehaviour
         {
             gearText.text = "The gear broke as you tried to fit in on.";
         }
-
-        for (int i = 0; i < 60; i++)
-        {
-            gearText.color = new Color(1, 1, 1, gearText.color.a + (1f / 60f));
-            yield return new WaitForSeconds(secPerTextFade / 60f);
-        }
-        yield return new WaitForSeconds(3);
-        for (int i = 0; i < 60; i++)
-        {
-            gearText.color = new Color(1, 1, 1, gearText.color.a - (1f / 60f));
-            yield return new WaitForSeconds(secPerTextFade / 60f);
-        }
+        gearText.GetComponent<Animator>().Play("Invisible");
+        yield return new WaitUntil(() => gearText.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Invisible");
+        gearText.GetComponent<Animator>().Play("Appear");
+        yield return null;
     }
 }

@@ -26,6 +26,10 @@ public class MusicTimer : MonoBehaviour
     {
         if(musicSource == null)
         {
+            if(GameObject.Find("Music") == null)
+            {
+                Destroy(this);
+            }
             musicSource = GameObject.Find("Music").GetComponent<AudioSource>();
             musicSource.time = time;
         }

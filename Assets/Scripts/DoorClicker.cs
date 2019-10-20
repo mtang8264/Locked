@@ -19,6 +19,16 @@ public class DoorClicker : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneToLoad);
+        StartCoroutine(LoadAsync());
+    }
+
+    IEnumerator LoadAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        while(!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
